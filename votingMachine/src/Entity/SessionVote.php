@@ -39,10 +39,8 @@ class SessionVote
     public function __construct()
     {
         $this->votes = new ArrayCollection();
-        $this->sessionCandidats = new ArrayCollection();
-       
-    }
-   
+        $this->sessionCandidats = new ArrayCollection();       
+    }   
 
     public function getId(): ?int
     {

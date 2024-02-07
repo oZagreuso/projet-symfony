@@ -46,11 +46,8 @@ class SessionCandidat
     {
         $this->session = $session;
 
-        return $this;
-    
-    }
-
-    
+        return $this;    
+    }    
 
     public function getId(): ?int
     {
