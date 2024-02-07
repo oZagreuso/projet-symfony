@@ -11,14 +11,18 @@ use Doctrine\ORM\Mapping as ORM;
 class SessionCandidat
 {
     
-    #[ORM\ManyToOne(inversedBy: 'sessionCandidats')]
-    #[ORM\JoinColumn(nullable: false)]
     #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null; 
+
+
+    #[ORM\ManyToOne(inversedBy: 'sessionCandidats')]
+    #[ORM\JoinColumn(nullable: false)]   
     private ?Candidat $candidat = null;
 
     #[ORM\ManyToOne(inversedBy: 'sessionCandidats')]
     #[ORM\JoinColumn(nullable: false)]
-    #[ORM\Id]
     private ?SessionVote $session = null;
 
     public function getCandidat(): ?Candidat
@@ -43,5 +47,13 @@ class SessionCandidat
         $this->session = $session;
 
         return $this;
+    
+    }
+
+    
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 }
