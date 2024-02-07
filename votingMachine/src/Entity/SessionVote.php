@@ -33,13 +33,14 @@ class SessionVote
     #[ORM\OneToMany(targetEntity: Vote::class, mappedBy: 'session')]
     private Collection $votes;
 
-    #[ORM\ManyToMany(targetEntity: Candidat::class, mappedBy: 'sessionCandidat')]
-    private Collection $candidats;
+    #[ORM\OneToMany(targetEntity: SessionCandidat::class, mappedBy: 'session')]
+    private Collection $sessionCandidats;
 
     public function __construct()
     {
         $this->votes = new ArrayCollection();
-        $this->candidats = new ArrayCollection();
+        $this->sessionCandidats = new ArrayCollection();
+       
     }
    
 
@@ -115,31 +116,33 @@ class SessionVote
     }
 
     /**
-     * @return Collection<int, Candidat>
+     * @return Collection<int, SessionCandidat>
      */
-    public function getCandidats(): Collection
+    public function getSessionCandidats(): Collection
     {
-        return $this->candidats;
+        return $this->sessionCandidats;
     }
 
-    public function addCandidat(Candidat $candidat): static
+    public function addSessionCandidat(SessionCandidat $sessionCandidat): static
     {
-        if (!$this->candidats->contains($candidat)) {
-            $this->candidats->add($candidat);
-            $candidat->addSessionCandidat($this);
+        if (!$this->sessionCandidats->contains($sessionCandidat)) {
+            $this->sessionCandidats->add($sessionCandidat);
+            $sessionCandidat->setSession($this);
         }
 
         return $this;
     }
 
-    public function removeCandidat(Candidat $candidat): static
+    public function removeSessionCandidat(SessionCandidat $sessionCandidat): static
     {
-        if ($this->candidats->removeElement($candidat)) {
-            $candidat->removeSessionCandidat($this);
+        if ($this->sessionCandidats->removeElement($sessionCandidat)) {
+            // set the owning side to null (unless already changed)
+            if ($sessionCandidat->getSession() === $this) {
+                $sessionCandidat->setSession(null);
+            }
         }
 
         return $this;
-    }
-    
+    }    
     
 }

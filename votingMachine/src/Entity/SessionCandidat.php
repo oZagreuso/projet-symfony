@@ -10,13 +10,38 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource]
 class SessionCandidat
 {
+    
+    #[ORM\ManyToOne(inversedBy: 'sessionCandidats')]
+    #[ORM\JoinColumn(nullable: false)]
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    private ?Candidat $candidat = null;
 
-    public function getId(): ?int
+    #[ORM\ManyToOne(inversedBy: 'sessionCandidats')]
+    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\Id]
+    private ?SessionVote $session = null;
+
+    public function getCandidat(): ?Candidat
     {
-        return $this->id;
+        return $this->candidat;
+    }
+
+    public function setCandidat(?Candidat $candidat): static
+    {
+        $this->candidat = $candidat;
+
+        return $this;
+    }
+
+    public function getSession(): ?SessionVote
+    {
+        return $this->session;
+    }
+
+    public function setSession(?SessionVote $session): static
+    {
+        $this->session = $session;
+
+        return $this;
     }
 }

@@ -32,6 +32,7 @@ class Vote
     #[ORM\JoinColumn(nullable: false)]
     private ?Candidat $candidat = null;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -72,4 +73,5 @@ class Vote
 
         return $this;
     }
+
 }
