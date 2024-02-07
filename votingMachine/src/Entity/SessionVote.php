@@ -4,12 +4,16 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\SessionVoteRepository;
+use ApiPlatform\Metadata\Get;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SessionVoteRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    operations: [
+        new Get()
+    ])]
 class SessionVote
 {
     #[ORM\Id]
