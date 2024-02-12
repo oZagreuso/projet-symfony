@@ -20,8 +20,14 @@
     <main id="app">
         <h1 class="center">Élections des représentants</h1>
         <p class="center">{{ nbCandidats }} candidats</p>
-        <section>
-            <article v-for="candidat of listeCandidat"></article>:src
+        <section class="portrait">
+            <article v-for="candidat of listeCandidats">
+                <h2>
+                {{ candidat.nom }} {{ candidat.prenom }}
+                </h2>
+                <img :src="candidat.photo" alt="">
+                
+            </article>
         </section>
         <button type="button" class="voter">Je vote !</button>
     </main>
