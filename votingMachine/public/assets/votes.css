@@ -68,6 +68,17 @@ footer {
 .portrait {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;    
+    gap: 9px;
+    padding: 10px;
+    width: 100%;
+    padding-top: 20px;
+    margin-right: -20px;
+    
+}
+
+.portrait img {
+    width: 165px;
 }
 
 article {
