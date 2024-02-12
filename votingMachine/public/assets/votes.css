@@ -80,4 +80,17 @@ h2 {
     text-shadow: black 1px 1px;
     text-align: center;
     width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+article img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+article:hover img {
+    transform:rotateY(180deg);
 }
