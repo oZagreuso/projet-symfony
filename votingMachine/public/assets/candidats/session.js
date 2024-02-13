@@ -1,4 +1,4 @@
-import { VotationsRepository } from "./VotationsRepository.js";
+import { VotationsRepository } from "../VotationsRepository.js";
 
 const app = {
 

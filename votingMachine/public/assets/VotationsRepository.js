@@ -1,4 +1,4 @@
-import { Candidat } from "./Candidat.js";
+import { Candidat } from "./candidats/Candidat.js";
 
 /**
  * Contient les requêtes vers l'API
