@@ -22,14 +22,18 @@
         <p class="center">{{ nbCandidats }} candidats</p>
         <section class="portrait">
             <article v-for="candidat of listeCandidats">
-                <h2>
-                {{ candidat.nom }} {{ candidat.prenom }}
-                </h2>
-                <img :src="candidat.photo" alt="">
-                
+                <div class="inner">
+                    <div class="front">
+                      
+                    </div>
+                    <div class="back">
+                    <h2>{{ candidat.nom }} {{ candidat.prenom }}</h2>           
+                    <img :src="candidat.photo" alt=""> 
+                    </div>
+                </div>
             </article>
         </section>
-        <button type="button" class="voter">Je vote !</button>
+        <a href="voter.html" class="voter">Je vote !</a>
     </main>
     <footer>
         <p>Copyright 2024 DWWM2304</p>
