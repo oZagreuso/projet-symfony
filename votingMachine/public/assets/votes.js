@@ -15,7 +15,7 @@ const app = {
 
         console.log(this.sessionEnCours);
 
-        for(let unCandidat of this.sessionEnCours.candidats) {
+        for(let unCandidat of this.sessionEnCours.sessionCandidats) {
 
             let monCandidat = unCandidat.split('/');
 

@@ -73,7 +73,7 @@ class VotationsRepository
      */
     static async getSessionsVotes() 
     {
-        let chemin = '/sessions_votes';
+        let chemin = '/session_votes';
 
         let json = await VotationsRepository.fetchUrl(chemin);
 
