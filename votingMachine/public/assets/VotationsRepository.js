@@ -60,7 +60,7 @@ class VotationsRepository
         let chemin = '/sessions_votes/' + identifiant;
 
         // Récupération des données
-        let json = VotationsRepository.fetchUrl(chemin);
+        let json = await VotationsRepository.fetchUrl(chemin);
 
         console.log('session_vote', json);
 
@@ -84,7 +84,10 @@ class VotationsRepository
 
     static async addVote()
     {
-        
+       let chemin = '/votes';
+       
+       let json = await VotationsRepository.fetchUrl(chemin);
+       
     }
 
     
